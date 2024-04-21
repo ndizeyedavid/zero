@@ -1,0 +1,627 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+:root {
+    --primary: #212121;
+    --secondary: #373737;
+    --text: #d4d4d4;
+    --sun: #7f8b95;
+    --star: #f1b3bf;
+    --bars: #628885;
+    --user: #97c8b2;
+    --house: #6272b0;
+    --team: #788cde;
+    --bell: #d57174;
+    --body-font: "Inter", sans-serif;
+}
+html{
+    font-family: var(--body-font);
+    color: var(--text);
+    scroll-behavior: smooth;
+    background: #1a1a1a;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--secondary);
+}
+.loader-bg{
+    width: 100%;
+    height: 2px;
+    background: none;
+}
+.loader{
+    height: 100%;
+    width: 50%;
+    background-color: var(--house);
+}
+#app{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+}
+input{
+    outline: 0;
+}
+#left-container{
+    background-color: var(--primary);
+    display: flex;
+    flex-direction: column;
+    flex: 15%;
+    padding: 20px 10px;
+    gap: 25px;
+    position: sticky;
+    height: 100vh;
+    z-index: 10;
+}
+#left-container .profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+#left-container .profile .profile-details{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+#left-container .profile .profile-details h4{
+    text-transform: capitalize;
+}
+#left-container .profile .profile-details h5{
+    font-weight: 400;
+}
+
+#left-container .profile .img-container {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+}
+#left-container .profile .img-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 100%;
+}
+#left-container .search-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#left-container .search-container input{
+    background-color: var(--primary);
+    color: var(--text);
+    padding: 5px 8px;
+    border-radius: 8px;
+    border: 1px solid #929292;
+    border-bottom: 2.3px solid #929292;
+    font-size: 16px;
+    width: 100%;
+}
+#left-container .search-container  .icon{
+    position: relative;
+    font-size: 18px;
+    right: 26px;
+    bottom: 15px;
+    color: var(--text);
+}
+#left-container .navigation{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#left-container .navigation a{
+    color: var(--text);
+    text-decoration: none;
+}
+#left-container .navigation .option{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    border-radius: 7px;
+    padding: 10px 10px;
+    text-transform: capitalize;
+    transition: 0.1s;
+    cursor: pointer;
+}
+#left-container .navigation .bottom-option{
+    position: absolute;
+    bottom: 10px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#left-container .navigation .bottom-option hr{
+    width: 100%;
+    margin-bottom: 10px;
+}
+#left-container .navigation .bottom-option .option{
+    width: 100%;
+}
+#left-container .navigation .option:hover{
+    background-color: var(--secondary);
+    opacity: 0.8;
+}
+#left-container .navigation .option:active{
+    transform: scale(0.93);
+}
+
+#left-container .navigation .option.active{
+    background-color: var(--secondary);
+    border-left: 3px solid #71b0e1;    
+}
+#left-container .navigation .option i{
+    font-size: 20px;
+}
+#left-container .navigation .option h3{
+    font-size: 16px;
+    font-weight: 500;
+    flex: 90%;
+}
+#left-container .navigation .option .option-label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* position: absolute;
+    left: 210px; */
+    background-color: #3d3d3d;
+    width: 18px;
+    height: 18px;
+    padding: 10PX;
+    border-radius: 100%;
+}
+#left-container .navigation hr{
+    border: 1px solid var(--secondary);
+}
+#main-container{
+    display: flex;
+    flex-direction: column;
+    flex: 85%;
+    background: linear-gradient(rgb(0, 0, 0, 0.3), rgb(0, 0, 0, 0.7)), url("../img/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+#main-container .content{
+    margin: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: 100vh;
+    /* width: 95%; */
+}
+#main-container .content .placeholder{
+    background: rgba(55, 55, 55, 0.4);
+    backdrop-filter: blur(4px);
+    width: 22vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 350px;
+    top: 200px;
+    border-radius: 8px;
+    padding: 10px;
+}
+.placeholder img{
+    width: 160px;
+    height: 160px;
+}
+.placeholder .text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: rgba(255, 255, 255, 0.879);
+    gap: 6px;
+}
+.placeholder .text h6{
+    font-weight: 400;
+    font-size: 15px;
+    text-align: center;
+}
+.filter-options select{
+    padding: 8px 20px;
+    font-size: 15px;
+    background: var(--primary);
+    border: none;
+    color: var(--text);
+    border-radius: 4px;
+    outline: 0;
+}
+#main-container .content .top-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#main-container .content .top-content .page-detail{
+    display: flex;
+    flex-direction: column;
+    gap: 2px
+}
+#main-container .content .top-content .page-detail h2{
+    font-weight: 600;
+    font-size: 30px;
+}
+#main-container .content .top-content .page-detail h4{
+    font-weight: 500;
+    font-size: 14px;
+}
+
+#main-container .content .top-content .top-options{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+#main-container .content .top-content .top-options .option{
+    background-color: var(--secondary);
+    padding: 8px;
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 16px;
+    transition: 0.1s;
+    cursor: pointer;
+}
+#main-container .content .top-content .top-options .option:hover{
+    transform: scale(0.9);
+}
+#main-container .content .top-content .top-options .option:active{
+    transform: scale(0.87);
+    opacity: 0.9;
+}
+#main-container .content .top-content .top-options .option:last-child:not(.team-container .option){
+    background: none;
+    font-size: 26px;
+}
+.task-container{
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 76vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.task-container .task{
+    padding: 13px 10px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 8px;
+    align-items: center;
+    gap: 9px;
+    background: var(--secondary);
+    transition: 0.1s;
+    cursor: pointer;
+}
+.task .task-details{
+    color: var(--text);
+    flex: 100%;
+}
+.task .task-details h3{
+    font-size: 15px;
+}
+.task .task-details h5{
+    font-size: 12px;
+    font-weight: 500;
+}
+.task .task-details .more-details{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-direction: row;
+}
+.task .task-details .task-name.active{
+    text-decoration: line-through;
+    opacity: 0.8;
+    font-weight: 600;
+}
+.task .check{
+    width: 30px;
+    height: 30px;
+    border: 3px solid var(--text);
+    border-radius: 100%;
+    transition: 0.1s;
+}
+.task .check.active{
+    background: var(--text);
+}
+.task .check:hover{
+    background-color: var(--primary);
+}
+.task .fav{
+    font-size: 20px;
+    transition: 0.1s;
+    width: 30px;
+    height: 30px;
+    /* padding: 3px; */
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.task .fav:hover{
+    background-color: var(--primary);
+}
+.task:hover{
+    transform: scale(1.01);
+}
+.task:active{
+    transform: scale(0.98);
+    opacity: 0.9;
+}
+
+/* important section // couldn't get any better 😖 */
+.important-container{
+    color: var(--star);
+}
+.important-container .top-content h2{
+    color: var(--star);
+}
+/* planned section  */
+.planned-container{
+    color: var(--user);
+}
+
+/* assigned section */
+.assigned-container{
+    color: var(--bars);
+}
+/* tasks section */
+.all-container{
+    color: var(--house);
+}
+/* WHEN will i ever stop */
+.team-container{
+    color: var(--team);
+}
+.team-container .option{
+    font-weight: 500;  
+    border-bottom: 2px solid var(--team);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+.team-container .option i{
+    font-size: 20px;
+}
+.team-container .message-container {
+    display: flex;
+    flex-direction: row;
+    height: 85vh;
+    gap: 4px;
+    margin-top: 10px;
+}
+.team-container .message-container .teams{
+    /* background-color: red; */
+    padding: 0px 20px;
+    flex: 15;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;    
+    gap: 12px;
+}
+
+.message-container .teams .team-card{
+    background: rgba(55, 55, 55, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+    padding-bottom: 20px;
+    /* width: 100%; */
+    border-radius: 7px;
+    color: var(--text);
+    backdrop-filter: blur(20px);
+    cursor: pointer;
+    transition: 0.2s;
+}
+.message-container .teams .team-card:hover{
+    background: rgba(55, 55, 55, 0.7);
+}
+.message-container .teams .team-card:active{
+    transform: scale(0.97);
+}
+
+.message-container .team-profile{
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    margin-bottom: 10px;
+}
+.message-container .teams .menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    position: relative;
+    left: 54px;
+    font-size: 30px;
+}
+.message-container .team-profile img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 100%;
+}
+.message-container .teams .team-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    text-transform: capitalize;
+}
+.message-container .teams .team-details h3{
+    font-weight: 700;
+    font-size: 17px;
+}
+.message-container .teams .team-details h4{
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.team-container .message-container .message-card{
+    background: rgba(55, 55, 55, 0.4);
+    backdrop-filter: blur(15px);
+    /* padding: 30px; */
+    flex: 85;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+.team-container .message-container .message-card .card-header{
+    backdrop-filter: blur(50px);
+    display: flex;
+    padding: 10px 0px;
+    justify-content: center;
+    border-radius: 4px 4px 0 0;
+}
+.team-container .message-container .message-card .card-header .team-profile {
+    width: 80px;
+    height: 80px;
+}
+
+.team-container .message-container .message-card .card-body{
+    padding: 10px;
+    height: 73%
+    
+}
+.team-container .message-container .message-card .card-body .message-holder{
+    padding: 10px;
+    /* background-color: red; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: #fff;
+    overflow-y: auto;
+}
+.message-holder .sender-msg-box{
+    display: flex;
+    justify-content: flex-end;
+    /* width: 30%; */
+    flex-wrap: wrap;
+}
+.message-holder .msg{
+    padding: 10px;
+    background: rgba(99, 115, 181, 0.687);
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-end; */
+    font-size: 18px;
+    border-radius: 4px;
+}
+.message-holder .msg .msg-details{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 12px;
+}
+
+.message-holder .reciever-msg-box{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.message-holder .reciever-msg-box .msg{
+    /* border-radius: 0 4px 4px 4px; */
+    background: #fff;
+    color: #000;
+}
+
+.message-holder .reciever-msg-box .reciever-profile{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+.message-holder .reciever-msg-box .reciever-profile img{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+.team-container .message-container .message-card .card-footer{
+    background: var(--text);
+    position: absolute;
+    bottom: 0;
+    /* padding: 15px; */
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 30px;
+    height: 60px;
+    gap: 10px;
+    font-size: 25px;
+    border-radius: 0 0 4px 4px;
+    color: var(--house);
+}
+.team-container .message-container .message-card .card-footer .input-container{
+    flex: 90;
+    width: 100%;
+    height: 100%;
+}
+
+.team-container .message-container .message-card .card-footer .input-container input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 0 30px;
+    background: none;
+    font-size: 18px;
+}
+.card-footer .emoji-container, .card-footer .send-container{
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.card-footer .emoji-container:hover, .card-footer .send-container:hover{
+    background: rgba(55, 55, 55, 0.1);
+}
+.card-footer .emoji-container:active, .card-footer .send-container:active{
+    background: rgba(55, 55, 55, 0.2);
+}
+
+.task-input-container{
+    background-color: red;
+    /* margin: 20px 80px; */
+    position: absolute;
+    bottom: 30px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    background: var(--primary);
+}
+.task-input-container .add{
+    font-size: 50px;
+}
+.input{
+    height: 60px;
+    width: 100%;
+}
+.task-input-container .input input{
+    height: 100%;
+    width: 100%;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--text);
+}
