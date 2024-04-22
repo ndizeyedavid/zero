@@ -150,9 +150,10 @@ input{
     transform: scale(0.93);
 }
 
-#left-container .navigation .option.active{
+#left-container .navigation .active{
     background-color: var(--secondary);
     border-left: 3px solid #71b0e1;    
+    border-radius: 7px;
 }
 #left-container .navigation .option i{
     font-size: 20px;

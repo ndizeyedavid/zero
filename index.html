@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
 </head>
-<body>
+<body onload="defaultLocation()">
     <div class="loader-bg"><div class="loader"></div></div>
     <section id="app">
 
@@ -34,36 +34,36 @@
             
             <!-- The nav is looking cool ✨ -->
             <div class="navigation">
-                <a href="">
-                    <div class="option active">
+                <a href="#main" class="link active" >
+                    <div class="option ">
                         <div class="option-icon"><i class="bi bi-sun-fill" style="color: var(--sun)"></i></div>
                         <h3 class="option-text">My Day</h3>
                         <div class="option-label">1</div>
                     </div>
                 </a>
                 
-                <a href="">
+                <a href="#important" class="link" >
                     <div class="option ">
                         <div class="option-icon"><i class="bi bi-star" style="color: var(--star)"></i></div>
                         <h3 class="option-text">Important</h3>
                     </div>
                 </a>
                 
-                <a href="">
+                <a href="#planned" class="link" onclick="route()">
                     <div class="option ">
                         <div class="option-icon"><i class="bi bi-card-list" style="color: var(--bars)"></i></div>
                         <h3 class="option-text">Planned</h3>
                     </div>
                 </a>
                 
-                <a href="">
+                <a href="#assigned" class="link" >
                     <div class="option ">
                         <div class="option-icon"><i class="bi bi-person" style="color: var(--user)"></i></div>
                         <h3 class="option-text">Assigned to me</h3>
                     </div>
                 </a>
                 
-                <a href="">
+                <a href="#task" class="link" >
                     <div class="option ">
                         <div class="option-icon"><i class="bi bi-house-door" style="color: var(--house)"></i></div>
                         <h3 class="option-text">Tasks</h3>
@@ -73,14 +73,14 @@
                 
                 <hr>
                 
-                <a href="">
+                <a href="#team" class="link" >
                     <div class="option ">
                         <div class="option-icon"><i class="bi bi-people" style="color: var(--team)"></i></div>
                         <h3 class="option-text">Collaboration</h3>
                     </div>
                 </a>
                  
-                <a href="">
+                <a href="#notification" class="link" >
                     <div class="bottom-option">
                         <hr>
                         <div class="option">
@@ -100,9 +100,14 @@
             <!-- Marvelous 🤗 -->
             <div class="content">
                 <!-- Where all 🎉 will be  -->
+                
             </div>
         </section>
         
     </section>
+
+    <!-- always fighting with  🤬 javascript files -->
+    <script src="assets/js/router.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 </html>
