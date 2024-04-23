@@ -32,16 +32,19 @@
     </div>
 </div>
 <!-- and here is where it all starts 🌞 -->
-<div class="task-input-container">
-    <div class="inp-container">
-        <div class="add"><i class="bi bi-plus"></i></div>
-        <div class="input"><input type="text" placeholder="Add a task" onclick="me()"></div>
+<form action="" id="form-cont" onsubmit="return false;">
+<!-- <form action="" onsubmit="addTask(document.getElementById('task'), document.getElementById('category'), document.getElementById('due'), document.getElementById('desc'), event)"> -->
+    <div class="task-input-container">
+        <div class="inp-container">
+            <div class="add"><i class="bi bi-plus"></i></div>
+            <div class="input"><input type="text" placeholder="Add a task" id="task" onkeyup="addTask(document.getElementById('task'), document.getElementById('category'), document.getElementById('due'), document.getElementById('desc'), document.getElementById('form-cont'), event);"></div>
+        </div>
+        <div class="inp-labels">
+            <select style="width: 100px;" id="category">
+                <option value="">Category</option>
+            </select>
+            <button title="date" id="due"><i class="bi bi-calendar-date"></i></button>
+            <button title="Description" id="desc" onclick="setModal()"><i class="bi bi-body-text"></i></button>
+        </div>
     </div>
-    <div class="inp-labels">
-        <select style="width: 100px;">
-            <option value="">Category</option>
-        </select>
-        <button title="date"><i class="bi bi-calendar-date"></i></button>
-        <button title="Description" onclick="setModal()"><i class="bi bi-body-text"></i></button>
-    </div>
-</div>
+</form>
