@@ -13,3 +13,7 @@ links.forEach((link)=>{
 
 // input functionality
 
+// modals integration
+function setModal(){
+    displayModal();
+}
