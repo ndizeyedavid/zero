@@ -603,13 +603,20 @@ input{
 .task-input-container{
     background-color: red;
     /* margin: 20px 80px; */
-    position: absolute;
+    position: fixed;
     bottom: 30px;
-    width: 80%;
+    width: 1130px;
     display: flex;
-    align-items: center;
+    flex-direction: row;
     border-radius: 6px;
     background: var(--primary);
+
+}
+.task-input-container .inp-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
 }
 .task-input-container .add{
     font-size: 50px;
@@ -625,4 +632,40 @@ input{
     border: none;
     font-size: 20px;
     color: var(--text);
+}
+.task-input-container .inp-labels{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    width: 20%;
+}
+.task-input-container .inp-labels button{
+    /* background: none; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-size: 14px;
+    background: none;
+    color: var(--text);
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+.task-input-container .inp-labels button:hover{
+    background: var(--secondary);
+}
+.task-input-container .inp-labels button:active{
+    transform: scale(0.97);
+}
+.task-input-container .inp-labels button:focus{
+    background: var(--secondary);
+}
+
+
+.task-input-container .inp-labels button i{
+    font-size: 20px;
 }

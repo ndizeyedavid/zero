@@ -10,3 +10,6 @@ links.forEach((link)=>{
         loadPage(link);
     };
 });
+
+// input functionality
+
