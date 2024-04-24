@@ -3,7 +3,7 @@ const loadPage = (link) =>{
     page_route = link.href;
     page_route = page_route.split("#");
     page_route = page_route[1];
-    console.log(page_route);
+    // console.log(page_route);
  
     
     handleLocation();
@@ -29,7 +29,7 @@ const defaultLocation = () =>{
     if (page_route === undefined){
         page_route = "main";
     }
-    console.log(page_route);
+    // console.log(page_route);
     handleLocation();
 }
 
@@ -40,6 +40,10 @@ const handleLocation = () => {
     xhttp_n.onload = () =>{
         const res = xhttp_n.response;
         main_container.innerHTML = res;
+
+        var script = document.createElement('script');
+        script.src = 'assets/js/view_task.js';
+        document.body.appendChild(script);
     }
     xhttp_n.open("GET", route);
     xhttp_n.send();

@@ -1,3 +1,6 @@
+// reserved variables 🎮🎮
+let task_container;
+// ***********************
 let due = "";
 let description = "";
 let links = document.querySelectorAll(".link");
@@ -48,4 +51,16 @@ function addTask(task, category, desc, form, event){
         form.reset();
         document.getElementById("task_desc").value="";
     }
+}
+
+
+// taskComplete
+function taskComplete(id){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = () =>{
+        const res = xhttp.response;
+        alert("Task completed!");
+    }
+    xhttp.open("GET", `php/complete_task.php?id=${id}`);
+    xhttp.send();
 }
