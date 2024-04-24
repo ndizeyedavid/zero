@@ -113,8 +113,12 @@
         <div class="modal-content">
             <span class="close" hidden>&times;</span>
             
-            <div class="due-container">
-                <h3>Modal Content</h3>
+            <div class="desc-cont" style="display: none;">
+                <h3>Task Description</h3>
+                <textarea id="task_desc" placeholder="Fully Describe your task..." style="width: 100%;height: 100px;outline: 0;padding: 10px;border-radius: 8px;"></textarea>
+                <div class="add_container" style="margin: 10px; margin-bottom: 30px;">
+                    <button style="float: right; background: var(--team); padding: 5px 20px; color: var(--text);border: none; border-radius: 8px;cursor: pointer;" onclick="span.click()">Close</button>
+                </div>
             </div>
         </div>
     </div>    
@@ -134,7 +138,7 @@
             onChange: (e) => {
                 // Get Date object from event
                 due = e.detail;
-                alert(due);
+                console.log(due);
             },
             theme: "lite-purple"
         });         

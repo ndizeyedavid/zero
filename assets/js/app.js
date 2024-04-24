@@ -1,4 +1,5 @@
 let due = "";
+let description = "";
 let links = document.querySelectorAll(".link");
 let main_container = document.querySelector(".content");
 let calendar_container = document.querySelector("#calendar");
@@ -17,11 +18,11 @@ links.forEach((link)=>{
 
 // modals integration
 function setModal(option){
-    displayModal();
+    displayModal(option);
 }
 
 // calendar visibility
-let isVis = false 
+let isVis = false;
 function calendar(){
     if (!isVis){
         calendar_container.style.display="";
@@ -31,6 +32,7 @@ function calendar(){
         isVis=false;
     }
 }
+
 
 // function addTask(form, event){
 function addTask(task, category, desc, form, event){
@@ -44,5 +46,6 @@ function addTask(task, category, desc, form, event){
         xhttp.send();
         
         form.reset();
+        document.getElementById("task_desc").value="";
     }
 }
