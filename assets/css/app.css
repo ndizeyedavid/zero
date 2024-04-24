@@ -707,3 +707,11 @@ input{
   text-decoration: none;
   cursor: pointer;
 }
+
+/* OOOOOOHHH GOD this is a datepicker */
+#calendar{
+    background-color: #000;
+    position: absolute;
+    right: 170px;
+    bottom: 100px;
+}

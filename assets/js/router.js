@@ -10,15 +10,15 @@ const loadPage = (link) =>{
 }
 
 const routes = {
-    "404": "../pages/404.html",
-    "": "../pages/main.html",
-    "main": "../pages/main.html",
-    "important": "../pages/important.html",
-    "assigned": "../pages/assigned.html",
-    "planned": "../pages/planned.html",
-    "task": "../pages/task.html",
-    "team": "../pages/team.html",
-    "notification": "../pages/notification.html",
+    "404": "pages/404.html",
+    "": "pages/main.html",
+    "main": "pages/main.html",
+    "important": "pages/important.html",
+    "assigned": "pages/assigned.html",
+    "planned": "pages/planned.html",
+    "task": "pages/task.html",
+    "team": "pages/team.html",
+    "notification": "pages/notification.html",
 };
 
 
@@ -30,11 +30,17 @@ const defaultLocation = () =>{
         page_route = "main";
     }
     console.log(page_route);
-    handleLocation()
+    handleLocation();
 }
 
-const handleLocation = async () => {
+const handleLocation = () => {
+
     const route = routes[page_route];
-    const html = await fetch(route).then((data) => data.text());
-    main_container.innerHTML = html;
+    const xhttp_n = new XMLHttpRequest(); 
+    xhttp_n.onload = () =>{
+        const res = xhttp_n.response;
+        main_container.innerHTML = res;
+    }
+    xhttp_n.open("GET", route);
+    xhttp_n.send();
 };

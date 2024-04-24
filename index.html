@@ -107,16 +107,37 @@
     </section>
 
     <!-- What are you doin here bro 😡 -->
+    <div id="calendar" style="display: none;"></div>
+
     <div id="modal-box" class="modal">
         <div class="modal-content">
             <span class="close" hidden>&times;</span>
-            <p>Some text in the Modal..</p>
+            
+            <div class="due-container">
+                <h3>Modal Content</h3>
+            </div>
         </div>
     </div>    
-
     <!-- always fighting with  🤬 javascript files -->
-    <script src="assets/js/modal.js"></script>
-    <script src="assets/js/router.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/vendor/date/dist/datedreamer.js"></script>
+    <script type="text/javascript" src="assets/js/modal.js"></script>
+    <script type="text/javascript" src="assets/js/router.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <!-- <script ></script> -->
+    <script>
+        const todaysDate = new Date();
+        new datedreamer.calendar({
+            element: "#calendar",
+            selectedDate: todaysDate,
+            format: "MM/DD/YYYY",
+            hideInputs: true,
+            onChange: (e) => {
+                // Get Date object from event
+                due = e.detail;
+                alert(due);
+            },
+            theme: "lite-purple"
+        });         
+    </script>
 </body>
 </html>
