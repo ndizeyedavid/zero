@@ -6,6 +6,7 @@ let description = "";
 let links = document.querySelectorAll(".link");
 let main_container = document.querySelector(".content");
 let calendar_container = document.querySelector("#calendar");
+let right_panel = document.getElementById('right-container');
 links.forEach((link)=>{
     link.onclick = () =>{
         links.forEach(link=>{
@@ -63,4 +64,29 @@ function taskComplete(id){
     }
     xhttp.open("GET", `php/complete_task.php?id=${id}`);
     xhttp.send();
+}
+
+// Add to important
+function modeChange(id){
+const xhttp = new XMLHttpRequest();
+    xhttp.onload = () =>{
+        const res = xhttp.response;
+        console.log(res);
+        // alert("Added to important!");
+    }
+    xhttp.open("GET", `php/important_task.php?id=${id}`);
+    xhttp.send();    
+}
+
+// displaying right side panel
+function displayDetails(id){
+    right_panel.style.display="";
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = () =>{
+        const res = xhttp.response;
+        right_panel.innerHTML = res;
+    }
+    xhttp.open("GET", `php/task_details.php?id=${id}`);
+    xhttp.send();
+
 }

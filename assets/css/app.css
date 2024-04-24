@@ -733,7 +733,7 @@ input{
 .loading-container .loading{
     width: 60px;
     height: 60px;
-    border: 3px solid red;
+    border: 3px solid var(--team);
     border-radius: 50%;
     border-bottom-color: rgba(0,0,0,0);
     animation: loading_animation 1s linear infinite;
@@ -745,4 +745,65 @@ input{
     100%{
         rotate: 360deg;
     }
+}
+
+#right-container{
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+    position: absolute;
+    right: 0;
+    height: 100vh;
+    background-color: rgba(39, 39, 39, 0.7);
+    backdrop-filter: blur(10px);
+    width: 20%;
+    padding: 30px;
+    /* display: none; */
+}
+#right-container .close{
+    display: flex;
+    justify-content: flex-end;
+    /* background-color: red; */
+    padding: 10px;
+}
+#right-container .task{
+    padding: 13px 10px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 8px;
+    align-items: center;
+    gap: 9px;
+    background: var(--secondary);
+    transition: 0.1s;
+    cursor: pointer;
+}
+#right-container .more-task-details, #right-container .task-desc{
+    background-color: var(--secondary);
+    padding: 10px;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#right-container .more-task-details .detail{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+#right-container .more-task-details .detail .icon{
+    font-size: 20px;
+}
+
+#right-container .more-task-details .detail .detail-name{
+    font-size: 17px;
+}
+#right-container .more-task-details hr{
+    border-color: var(--primary);
+}
+#right-container .task-desc{
+    padding: 15px;
+    color: #b9b9b9;
+    height: 100px;
 }

@@ -1,6 +1,6 @@
-console.log(page_route);
-if (page_route == "main") {
+if (page_route == "main" || page_route == "important" || page_route == "planned" || page_route == "assigned" || page_route == "task" || page_route == "team") {
     task_container = document.querySelector(".task-container");
+    console.log(page_route);
 
 
     const xhttp = new XMLHttpRequest();
@@ -11,8 +11,8 @@ if (page_route == "main") {
         // console.log(res);
     }
     setInterval(()=>{
-        xhttp.open("GET", `php/view_task.php?category=${page_route}`);
+        xhttp.open("GET", `php/view_task.php?type=${page_route}`);
         xhttp.send();
 
-    }, 1400);
+    }, 1000);
 }
