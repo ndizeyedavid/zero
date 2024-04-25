@@ -282,6 +282,40 @@ input{
     background: none;
     font-size: 26px;
 }
+.top-content .menu{
+    position: fixed;
+    right: 40px;
+    top: 90px;
+    width: 20%;
+    height: 23em;
+}
+
+.themes-container{
+    background: var(--primary);
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.themes-container .theme-colors{
+    display: flex;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+} 
+.themes-container .theme-colors .color{
+        height: 40px;
+        width: 40px;
+        cursor: pointer;
+}
+.theme{
+    margin-top: 30px;
+}
+
+
+
 .task-container{
     padding: 30px 20px;
     display: flex;

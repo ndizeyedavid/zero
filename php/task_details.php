@@ -3,7 +3,7 @@
 $id = $_GET['id'];
 echo "
 
-<div class='close'><i class='bi bi-x-lg' onclick='document.getElementById(`right-container`).style.display='none';'></i></div>
+<div class='close'><i class='bi bi-x-lg' onclick='closePanel()'></i></div>
 <div class='task'>
     <div class='check'></div>
     <div class='task-details'>Mellow task(id: $id)</div>

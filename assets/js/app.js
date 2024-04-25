@@ -7,6 +7,7 @@ let links = document.querySelectorAll(".link");
 let main_container = document.querySelector(".content");
 let calendar_container = document.querySelector("#calendar");
 let right_panel = document.getElementById('right-container');
+let main_cont = document.getElementById('main-container'); 
 links.forEach((link)=>{
     link.onclick = () =>{
         links.forEach(link=>{
@@ -89,4 +90,27 @@ function displayDetails(id){
     xhttp.open("GET", `php/task_details.php?id=${id}`);
     xhttp.send();
 
+}
+
+// closing right panel
+function closePanel(){
+    document.getElementById("right-container").style.display='none';
+}
+
+// theme menu
+let isOpen = false;
+function showMenu(theme_cont){
+    if (!isOpen){
+        theme_cont.style.display="";
+        isOpen = true;
+    }else{
+        theme_cont.style.display="none";
+        isOpen = false;
+    }
+}
+
+// change theme
+function changeTheme(background){
+    main_cont.style.background = background.style.background;
+    // console.log(background.style.background);
 }
