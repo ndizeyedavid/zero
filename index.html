@@ -15,11 +15,11 @@
         <section id="left-container">
             <div class="profile">
                 <div class="img-container">
-                    <img src="assets/img/user.png" alt="Profile-img">
+                    <img src="assets/img/profile.jpg" alt="Profile-img">
                 </div>
                 <div class="profile-details">
-                    <h4 class="userName">User Name</h4>
-                    <h5 class="email">mail@reception.com</h5>
+                    <h4 class="userName">Shyaka Prince</h4>
+                    <h5 class="email">pshayaka91@gmail.com</h5>
                 </div>
             </div>
 
@@ -113,6 +113,8 @@
         
     </section>
 
+    <button class="record-btn-call" id="click_to_record" onclick="displayModal('voice')"><img src="assets/img/ai.png" alt="Record"></button>
+
     <!-- What are you doin here bro 😡 -->
     <div id="calendar" style="display: none;"></div>
 
@@ -126,6 +128,14 @@
                 <div class="add_container" style="margin: 10px; margin-bottom: 30px;">
                     <button style="float: right; background: var(--team); padding: 5px 20px; color: var(--text);border: none; border-radius: 8px;cursor: pointer;" onclick="span.click()">Close</button>
                 </div>
+            </div>
+
+            <div class="ai_voice">
+                <h3 class="desc">Ai voice command</h3>
+                <br><br>
+                <p id="out" class="muted" style="text-align: center; font-size: 17px;">plan a trip to the back</p>
+                <button class="run">Run</button>
+                <!-- <br><br> -->
             </div>
         </div>
     </div>    
@@ -151,5 +161,6 @@
             theme: "lite-purple"
         });         
     </script>
+    <script src="assets/js/voice.js"></script>
 </body>
 </html>

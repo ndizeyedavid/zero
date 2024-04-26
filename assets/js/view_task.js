@@ -1,6 +1,6 @@
 if (page_route == "main" || page_route == "important" || page_route == "planned" || page_route == "assigned" || page_route == "task" || page_route == "team") {
     task_container = document.querySelector(".task-container");
-    console.log(page_route);
+    // console.log(page_route);
 
 
     const xhttp = new XMLHttpRequest();
@@ -16,3 +16,17 @@ if (page_route == "main" || page_route == "important" || page_route == "planned"
 
     }, 1000);
 }
+
+// update theme
+themes = document.querySelectorAll(".color");
+themes.forEach((theme)=>{
+    theme.onclick = () =>{
+        themes.forEach(theme=>{
+            theme.classList.remove('active');
+        });
+        
+        theme.classList.add('active');
+        main_cont.style.background = theme.style.background;
+
+    };
+});

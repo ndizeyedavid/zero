@@ -32,8 +32,17 @@ html{
 }
 .loader{
     height: 100%;
-    width: 50%;
+    width: 100%;
     background-color: var(--house);
+    animation: running 4s linear infinite;
+}
+@keyframes running{
+    0%{
+        width: 0px;
+    }
+    100%{
+        width: 100%;
+    }
 }
 #app{
     display: flex;
@@ -287,7 +296,7 @@ input{
     right: 40px;
     top: 90px;
     width: 20%;
-    height: 23em;
+    /* height: 23em; */
 }
 
 .themes-container{
@@ -305,6 +314,13 @@ input{
     justify-content: center;
     gap: 10px;
 } 
+.themes-container .theme-colors .color{
+    opacity: 0.6;
+}
+.themes-container .theme-colors .active{
+    border: 2px solid;
+    opacity: 1;
+}
 .themes-container .theme-colors .color{
         height: 40px;
         width: 40px;
@@ -709,7 +725,7 @@ input{
 
 /* Don't get mad at me!!! it's just a modal box */
 .modal {
-  display: none; 
+  display: none;    
   position: fixed; 
   z-index: 1; 
   left: 0;
@@ -840,4 +856,53 @@ input{
     padding: 15px;
     color: #b9b9b9;
     height: 100px;
+}
+
+.record-btn-call{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    cursor: pointer;
+    border: none;
+    transition: .1s;
+    border: 2px solid rgba(0, 115, 255, 0.7);
+    background: none;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.record-btn-call:hover{
+    opacity: 0.8;
+    background: rgba(0, 115, 255, 0.2);
+}
+.record-btn-call:active{
+    opacity: 1;
+}
+/* .record-btn-call:focus{
+
+} */
+.record-btn-call img{
+    width: 25px;
+}
+.run{
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    background: linear-gradient(95deg, #07f8fa, #bd67e2);
+    font-size: 15px;
+    /* colo */
+    opacity: 0.8;
+    transition: .2s;
+    cursor: pointer;
+}
+.run:hover{
+    opacity: 0.9;
+}
+.run:active{
+    opacity: 1;
 }

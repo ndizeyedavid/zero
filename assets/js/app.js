@@ -1,5 +1,5 @@
 // reserved variables 🎮🎮
-let task_container;
+let task_container, themes, message;
 // ***********************
 let due = "";
 let description = "";
@@ -8,6 +8,8 @@ let main_container = document.querySelector(".content");
 let calendar_container = document.querySelector("#calendar");
 let right_panel = document.getElementById('right-container');
 let main_cont = document.getElementById('main-container'); 
+let run_btn = document.querySelector('.run');
+let user_msg = document.querySelector('#out');
 links.forEach((link)=>{
     link.onclick = () =>{
         links.forEach(link=>{
@@ -109,8 +111,37 @@ function showMenu(theme_cont){
     }
 }
 
-// change theme
-function changeTheme(background){
-    main_cont.style.background = background.style.background;
-    // console.log(background.style.background);
+const keyWords = {
+  command: [
+    { word: "create", action: "add" },
+    { word: "add", action: "add" },
+    { word: "plan", action: "add" },
+],
+  due: [
+    { word: "due", action: "date" },
+    { word: "end", action: "date" },
+  ],
+};
+run_btn.onclick = () =>{
+    var isThere = false;
+    message = user_msg.innerHTML.toLocaleLowerCase();
+    // console.log(message);
+    // if
+    for (let i = 0; i < keyWords.command.length; i++){
+        if (message.includes(keyWords.command[i].word)){
+            isThere = true;
+            message = message.split(keyWords.command[i].word);
+            message = message[1];
+        }
+    }
+
+    if (isThere){
+        console.log(message);
+        document.getElementById('task').value=message;
+        modal.style.display="none";
+    }else{
+        console.log("nah");
+    }
+    // console.log(keyWords.command[0].word);
+    // message pre-processing
 }
