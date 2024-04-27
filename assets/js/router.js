@@ -16,7 +16,7 @@ const routes = {
     "important": "pages/important.html",
     "assigned": "pages/assigned.html",
     "planned": "pages/planned.html",
-    "task": "pages/task.html",
+    "completed": "pages/completed.html",
     "team": "pages/team.html",
     "notification": "pages/notification.html",
 };

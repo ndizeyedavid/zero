@@ -1,3 +1,12 @@
+<?php 
+session_start();
+include_once "php/connect.php";
+if ($_SESSION['id']){
+    $uname = $_SESSION['name'];
+    $id = $_SESSION['id'];
+    $email = $_SESSION['email'];
+    $profile = $_SESSION['profile'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +15,8 @@
     <title>ZERO</title>
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/vendor/toastify/toast.css">
+    <link rel="icon" href="assets/img/logo.png"> 
 </head>
 <body onload="defaultLocation()">
     <div class="loader-bg"><div class="loader"></div></div>
@@ -15,11 +26,11 @@
         <section id="left-container">
             <div class="profile">
                 <div class="img-container">
-                    <img src="assets/img/profile.jpg" alt="Profile-img">
+                    <img src="assets/img/profile/<?php echo $profile; ?>" alt="Profile-img">
                 </div>
                 <div class="profile-details">
-                    <h4 class="userName">Shyaka Prince</h4>
-                    <h5 class="email">pshayaka91@gmail.com</h5>
+                    <h4 class="userName"><?php echo $uname; ?></h4>
+                    <h5 class="email"><?php echo $email; ?></h5>
                 </div>
             </div>
 
@@ -63,10 +74,10 @@
                     </div>
                 </a>
                 
-                <a href="#task" class="link" >
+                <a href="#completed" class="link" >
                     <div class="option ">
-                        <div class="option-icon"><i class="bi bi-house-door" style="color: var(--house)"></i></div>
-                        <h3 class="option-text">Tasks</h3>
+                        <div class="option-icon"><i class="bi bi-check-circle" style="color: var(--house)"></i></div>
+                        <h3 class="option-text">Completed</h3>
                         <div class="option-label">1</div>
                     </div>
                 </a>
@@ -138,8 +149,12 @@
                 <!-- <br><br> -->
             </div>
         </div>
-    </div>    
+    </div> 
+    <script>
+        const date = "<?php echo date("D, M d") ?>";
+    </script>   
     <!-- always fighting with  🤬 javascript files -->
+    <script src="assets/vendor/toastify/toast.js"></script>
     <script type="text/javascript" src="assets/vendor/date/dist/datedreamer.js"></script>
     <!-- <script type="text/javascript" src="assets/js/view_task.js"></script> -->
     <script type="text/javascript" src="assets/js/modal.js"></script>
@@ -164,3 +179,4 @@
     <script src="assets/js/voice.js"></script>
 </body>
 </html>
+<?php }else{header("location: init.php");} ?>

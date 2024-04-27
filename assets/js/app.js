@@ -1,5 +1,5 @@
 // reserved variables 🎮🎮
-let task_container, themes, message;
+let task_container, themes, message, lp, date_cont;
 // ***********************
 let due = "";
 let description = "";
@@ -44,16 +44,37 @@ function calendar(){
 // function addTask(form, event){
 function addTask(task, category, desc, form, event){
     if (event.key=="Enter"){
-        const xhttp = new XMLHttpRequest();
-        xhttp.onload = () =>{
-            const res = xhttp.responseText;
-            console.log(res);
+        if(task.value != ""){
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = () =>{
+                const res = xhttp.responseText;
+                Toastify({
+                text: res,
+                className: "info",
+                gravity: "top",
+                position: "center",
+                style: {
+                    color: "black",
+                    background: "lime",
+                }
+                }).showToast();
+            }
+            xhttp.open("GET", `php/add_task.php?task=${task.value}&category=${category.value}&due=${due}&desc=${desc.value}&tab=${page_route}`);
+            xhttp.send();
+            
+            form.reset();
+            document.getElementById("task_desc").value="";
+        }else{
+            Toastify({
+            text: "Enter a task first",
+            className: "info",
+            gravity: "top",
+            position: "center",            
+            style: {
+                background: "red",
+            }
+            }).showToast();
         }
-        xhttp.open("GET", `php/add_task.php?task=${task.value}&category=${category.value}&due=${due}&desc=${desc.value}`);
-        xhttp.send();
-        
-        form.reset();
-        document.getElementById("task_desc").value="";
     }
 }
 
@@ -63,7 +84,28 @@ function taskComplete(id){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = () =>{
         const res = xhttp.response;
-        alert("Task completed!");
+        if (res == "yes") {
+            Toastify({
+                text: "Task Completion updated",
+                className: "info",
+                gravity: "top",
+                position: "center",
+                style: {
+                    color: "black",
+                    background: "lime",
+                }
+            }).showToast();            
+        }else{
+            Toastify({
+                text: "An error occured",
+                className: "info",
+                gravity: "top",
+                position: "center",
+                style: {
+                    background: "red",
+                }
+            }).showToast();            
+        }
     }
     xhttp.open("GET", `php/complete_task.php?id=${id}`);
     xhttp.send();
@@ -74,8 +116,28 @@ function modeChange(id){
 const xhttp = new XMLHttpRequest();
     xhttp.onload = () =>{
         const res = xhttp.response;
-        console.log(res);
-        // alert("Added to important!");
+        if (res == "yes"){
+            Toastify({
+                text: "Task priority updated",
+                className: "info",
+                gravity: "top",
+                position: "center",
+                style: {
+                    color: "black",
+                    background: "lime",
+                }
+            }).showToast(); 
+        }else{
+            Toastify({
+                text: "An error occured",
+                className: "info",
+                gravity: "top",
+                position: "center",
+                style: {
+                    background: "red",
+                }
+            }).showToast(); 
+        }
     }
     xhttp.open("GET", `php/important_task.php?id=${id}`);
     xhttp.send();    
@@ -94,6 +156,89 @@ function displayDetails(id){
 
 }
 
+// updating the task details
+function updateTask(id){
+    var task = document.querySelector('#inp-task');
+    var category = document.querySelector('#inp-category');
+    var due = document.querySelector('#inp-due');
+    var desc = document.querySelector('#inp-desc');
+    if (task.value == "") {
+        Toastify({
+            text: "Enter the task first",
+            className: "info",
+            gravity: "top",
+            position: "center",
+            style: {
+                background: "red",
+            }
+        }).showToast();        
+    }else{
+        // updating
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = () =>{
+            const res = xhttp.response;
+            console.log(res);
+            if (res == "yes"){
+                Toastify({
+                    text: "Task updated",
+                    className: "info",
+                    gravity: "top",
+                    position: "center",
+                    style: {
+                        color: "black",
+                        background: "lime",
+                    }
+                }).showToast();
+            }else{
+                Toastify({
+                    text: "An error occured",
+                    className: "info",
+                    gravity: "top",
+                    position: "center",
+                    style: {
+                        background: "red",
+                    }
+                }).showToast();
+            }
+        }
+        xhttp.open("GET", `php/update_task.php?task=${task.value}&category=${category.value}&due=${due.value}&desc=${desc.value}&id=${id}`);
+        xhttp.send();
+        document.querySelector('.bi-x-lg').click();
+    }
+}
+
+// Deleting a task
+function deleteTask(id){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = () =>{
+        const res = xhttp.response;
+        if (res == "yes"){
+            Toastify({
+                text: "Task Deleted",
+                className: "info",
+                gravity: "top",
+                position: "center",
+                style: {
+                    color: "black",
+                    background: "lime",
+                }
+            }).showToast();
+        }else{
+            Toastify({
+                text: "An error occured",
+                className: "info",
+                gravity: "top",
+                position: "center",
+                style: {
+                    background: "red",
+                }
+            }).showToast();
+        }
+    }
+    xhttp.open("GET", `php/delete_task.php?id=${id}`);
+    xhttp.send();
+    document.querySelector('.bi-x-lg').click();
+}
 // closing right panel
 function closePanel(){
     document.getElementById("right-container").style.display='none';
