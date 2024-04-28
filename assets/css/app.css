@@ -376,18 +376,24 @@ input{
     font-weight: 600;
 }
 .task .check{
-    width: 30px;
-    height: 30px;
-    padding: 10px;
+    width: 35px;
+    height: 35px;
+    /* padding: 10px; */
     border: 3px solid var(--text);
     border-radius: 100%;
     transition: 0.1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 24px;
 }
 .task .check.active{
     background: var(--text);
 }
 .task .check:hover{
-    background-color: var(--primary);
+    opacity: 0.9;
+    /* background-color: var(--primary); */
 }
 .task .fav{
     font-size: 20px;
@@ -436,6 +442,37 @@ input{
 .team-container{
     color: var(--team);
 }
+.team-container .team-card .menu-options{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 80%;
+    /* height: 70%; */
+    background: var(--primary);
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+}
+.team-container .team-card .menu-options .menu-option{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 7px;
+}
+.team-container .team-card .menu-options .menu-option:hover{
+    background-color: var(--secondary);
+}
+.team-container .team-card .menu-options hr{
+    border: 1px solid var(--secondary);
+}
+
+.team-container .team-card .menu-options .menu-option:active{
+    opacity: 0.8;
+}
+
+
 .team-container .option{
     font-weight: 500;  
     border-bottom: 2px solid var(--team);
@@ -484,7 +521,7 @@ input{
     background: rgba(55, 55, 55, 0.7);
 }
 .message-container .teams .team-card:active{
-    transform: scale(0.97);
+    opacity: 0.97;
 }
 
 .message-container .team-profile{
@@ -657,7 +694,7 @@ input{
     /* margin: 20px 80px; */
     position: fixed;
     bottom: 30px;
-    width: 1130px;
+    width: 70%;
     display: flex;
     flex-direction: row;
     border-radius: 6px;
@@ -742,7 +779,7 @@ input{
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 30%; 
+  width: 80%; 
   border-radius: 8px;
 }
 
@@ -827,6 +864,48 @@ input{
     transition: 0.1s;
     cursor: pointer;
 }
+#right-container .task .task-details{
+    /* background-color: red; */
+    height: 100%;
+    width: 100%;
+}
+#right-container input{
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 15px;
+    border-radius: 5px;
+    border: .1px solid;
+    padding: 2px;
+}
+#right-container textarea{
+    width: 100%;
+    height: 100%;
+    background: none;
+    color: var(--text);
+    border-radius: 5px;
+    padding: 5px;
+}
+#right-container input:focus, #right-container textarea:focus{
+    outline: 1px solid;
+}
+#right-container .update{
+    border: none;
+    /* padding: 2px; */
+    border-radius: 5px;
+    background-color: var(--user);
+    opacity: 0.8;
+    cursor: pointer;
+}
+#right-container .update:hover{
+    opacity: 0.7;
+}
+#right-container .update:active{
+    opacity: 1;
+}
+
 #right-container .more-task-details, #right-container .task-desc{
     background-color: var(--secondary);
     padding: 10px;
@@ -855,9 +934,38 @@ input{
 #right-container .task-desc{
     padding: 15px;
     color: #b9b9b9;
-    height: 100px;
+    height: 170px;
 }
-
+#right-container .bottom{
+    /* margin-top: 20px; */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* position: absolute; */
+    /* bottom: 10px; */
+}
+#right-container .bottom hr{
+    border: 1px solid var(--secondary);
+}
+#right-container .bottom .txt{
+    font-size: 12px;
+    /* letter-spacing: 3px; */
+    color: #757575;
+}
+#right-container .bottom .txt button{
+    color: #757575;
+    font-size: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+#right-container .txt button:hover{
+    color: #a4a4a4;
+}
+#right-container .txt button:active{
+    opacity: 0.8;
+}
 .record-btn-call{
     position: fixed;
     bottom: 30px;
@@ -905,4 +1013,161 @@ input{
 }
 .run:active{
     opacity: 1;
+}
+
+.new_team form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.new_team .input-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.new_team input, .new_team button{
+    font-size: 12px;
+    padding: 7px;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s;
+}
+.new_team button{
+    background: var(--team);
+    border: none;
+}
+.new_team button:hover{
+    opacity: 0.8;
+}
+.new_team button:active{
+    opacity: 1;
+    transform: scale(0.97);
+}
+
+.new_team .team-name{
+    background: none;
+    border: 1px solid var(--text);
+    color: var(--text);
+    cursor: text;
+}
+.new_team img{
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+}
+.new_team .submit {
+ border: none;
+ color: #fff;
+ background-image: linear-gradient(30deg, #0400ff, #4ce3f7);
+ border-radius: 10px;
+ background-size: 100% auto;
+ font-family: inherit;
+ font-size: 17px;
+ padding: 0.6em 1.5em;
+ font-weight: 300;
+}
+
+.new_team .submit:hover {
+ background-position: right center;
+ background-size: 200% auto;
+ -webkit-animation: pulse 2s infinite;
+ animation: pulse512 1.5s infinite;
+}
+
+@keyframes pulse512 {
+ 0% {
+  box-shadow: 0 0 0 0 #05bada66;
+ }
+
+ 70% {
+  box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+ }
+
+ 100% {
+  box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+ }
+}
+.members{
+    width: 100%;
+    height: 50%;
+}
+.members img{
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+}
+.members table{
+    width: 100%;
+    border-color: var(--text);
+}
+.members table th{
+    padding: 10px;
+}
+.invite{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.invite input{
+    border: 1px solid var(--text);
+    color: var(--text);
+    border-radius: 8px;
+    background: none;
+    font-size: 18px;
+}
+.send-invite {
+  font-family: inherit;
+  font-size: 20px;
+  background: royalblue;
+  color: white;
+  padding: 7px;
+  padding-left: 0.9em;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.send-invite span {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
+.send-invite svg {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.send-invite:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+.send-invite:hover svg {
+  transform: translateX(1.2em) rotate(45deg) scale(1.1);
+}
+
+.send-invite:hover span {
+  transform: translateX(5em);
+}
+
+.send-invite:active {
+  transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.1em);
+  }
 }

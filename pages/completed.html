@@ -6,7 +6,7 @@
 
         <div class="top-options">
             <div class="option">
-                <i class="bi bi-arrows-angle-expand"></i>
+                <i class="bi bi-printer"></i>
             </div>
 
             <div class="option" onclick="showMenu(document.querySelector('.menu'))">
@@ -47,43 +47,10 @@
         </div>
     </div>
 
-    
-    
     <div class="task-container">
-        <div class="task">
-            <div class="check"></div>
-            <div class="task-details">
-                <h3 class="task-name">Task Name</h3>
-                <div class="more-details">
-                    <h5 class="category">category</h5>
-                    <b class="sep">&#x2022;</b>
-                    <h5>team</h5>
-                    <b class="sep">&#x2022;</b>
-                    <h5>date</h5>
-                </div>
-            </div>
-            <div class="fav">
-                <i class="bi bi-star"></i>
-            </div>
-        </div>
-        <hr>
+        <div class="loading-container">
+            <div class="loading"></div>
+            <div class="txt">Loading...</div>
+        </div>  
     </div>
 </div>
-<!-- and here is where it all starts 🌞 -->
-<form action="" id="form-cont" onsubmit="return false;">
-    <div class="task-input-container">
-        <div class="inp-container">
-            <div class="add"><i class="bi bi-plus"></i></div>
-            <div class="input"><input type="text" placeholder="Add a task" id="task" onkeyup="addTask(document.getElementById('task'), document.getElementById('category'), document.getElementById('task_desc'), document.getElementById('form-cont'), event);"></div>
-        </div>
-        <div class="inp-labels">
-            <select style="width: 100px;" id="category">
-                <option value="">Category</option>
-                <option value="Hobby">Hobby</option>
-                <option value="Education">Education</option>
-            </select>
-            <button title="date" id="due" onclick="calendar()"><i class="bi bi-calendar-date"></i></button>
-            <button title="Description" id="desc" onclick="setModal('description')"><i class="bi bi-body-text"></i></button>
-        </div>
-    </div>
-</form>
