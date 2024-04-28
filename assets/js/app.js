@@ -290,3 +290,35 @@ run_btn.onclick = () =>{
     // console.log(keyWords.command[0].word);
     // message pre-processing
 }
+
+// upload img
+function uploadImg() {
+    document.getElementById("upload-inp").click();
+    document.getElementById("upload-inp").addEventListener("change", function(event){
+        var file = event.target.files[0];
+        var type = file.type.split('/');
+        type = type[0];
+        if (type != "image") {
+            Toastify({
+                text: "Wrong Image format",
+                className: "info",
+                gravity: "top",
+                position: "center",
+                style: {
+                    background: "red",
+                }
+            }).showToast();
+            return false;
+        }
+    
+        var reader = new FileReader();
+    
+        reader.onload = function(event) {
+            var src = event.target.result;
+            document.getElementById('imagePreview').src = src;
+        }
+        
+        reader.readAsDataURL(file);
+    });
+    document.getElementById("upload-inp").value = "";
+}

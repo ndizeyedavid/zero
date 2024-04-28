@@ -983,3 +983,79 @@ input{
 .run:active{
     opacity: 1;
 }
+
+.new_team form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.new_team .input-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.new_team input, .new_team button{
+    font-size: 12px;
+    padding: 7px;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s;
+}
+.new_team button{
+    background: var(--team);
+    border: none;
+}
+.new_team button:hover{
+    opacity: 0.8;
+}
+.new_team button:active{
+    opacity: 1;
+    transform: scale(0.97);
+}
+
+.new_team .team-name{
+    background: none;
+    border: 1px solid var(--text);
+    color: var(--text);
+    cursor: text;
+}
+.new_team img{
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+}
+.new_team .submit {
+ border: none;
+ color: #fff;
+ background-image: linear-gradient(30deg, #0400ff, #4ce3f7);
+ border-radius: 10px;
+ background-size: 100% auto;
+ font-family: inherit;
+ font-size: 17px;
+ padding: 0.6em 1.5em;
+ font-weight: 300;
+}
+
+.new_team .submit:hover {
+ background-position: right center;
+ background-size: 200% auto;
+ -webkit-animation: pulse 2s infinite;
+ animation: pulse512 1.5s infinite;
+}
+
+@keyframes pulse512 {
+ 0% {
+  box-shadow: 0 0 0 0 #05bada66;
+ }
+
+ 70% {
+  box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+ }
+
+ 100% {
+  box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+ }
+}

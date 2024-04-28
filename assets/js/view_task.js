@@ -1,4 +1,4 @@
-if (page_route == "main" || page_route == "important" || page_route == "planned" || page_route == "assigned" || page_route == "completed" || page_route == "team") {
+if (page_route == "main" || page_route == "important" || page_route == "planned" || page_route == "assigned" || page_route == "completed") {
     task_container = document.querySelector(".task-container");
     // console.log(page_route);
 
@@ -16,7 +16,11 @@ if (page_route == "main" || page_route == "important" || page_route == "planned"
 
     }, 1000);
 }
-
+if (page_route=="team"){
+    document.querySelector('.record-btn-call').style.display="none";
+}else{
+    document.querySelector('.record-btn-call').style.display="block";
+}
 // update theme
 themes = document.querySelectorAll(".color");
 themes.forEach((theme)=>{

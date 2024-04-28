@@ -17,7 +17,7 @@ const routes = {
     "assigned": "pages/assigned.html",
     "planned": "pages/planned.html",
     "completed": "pages/completed.html",
-    "team": "pages/team.html",
+    "team": "pages/team.php",
     "notification": "pages/notification.html",
 };
 
@@ -29,6 +29,7 @@ const defaultLocation = () =>{
     if (page_route === undefined){
         page_route = "main";
     }
+    document.getElementById(page_route).classList.add("active");
     // console.log(page_route);
     handleLocation();
 }

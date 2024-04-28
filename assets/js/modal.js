@@ -4,6 +4,7 @@ let span = document.getElementsByClassName("close")[0];
 // inside modals
 let desc_modal = document.querySelector(".desc-cont");
 let voice_modal = document.querySelector(".ai_voice");
+let team_modal = document.querySelector(".new_team");
 function displayModal(option) {
   modal.style.display = "block";
   if (option == "description") {
@@ -16,6 +17,12 @@ function displayModal(option) {
     voice_modal.style.display="";
   }else{
     voice_modal.style.display="none";
+  }
+
+  if (option == "new_team") {
+    team_modal.style.display="";
+  }else{
+    team_modal.style.display="none";
   }
 }
 
