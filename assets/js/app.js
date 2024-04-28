@@ -322,3 +322,40 @@ function uploadImg() {
     });
     document.getElementById("upload-inp").value = "";
 }
+
+// team Menu pop-up
+let menuOpen = false;
+function teamMenu(menu_options) {
+    if (!menuOpen) {
+        menu_options.style.display = "";
+        menuOpen = true;
+    }else{
+        menu_options.style.display = "none";
+        menuOpen = false;
+    }
+}
+
+// fetching members
+function fetchMembers(id){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = () =>{
+        const res = xhttp.response;
+        console.log(id);
+        document.querySelector('.members-here').innerHTML=res;
+    }
+    xhttp.open("GET", `php/fetch_members.php?id=${id}`);
+    xhttp.send();
+}
+
+// sending invite
+function sendInvite(email){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = () =>{
+        email.value = '';
+        const res = xhttp.response;
+        console.log(res);
+    }
+    xhttp.open('GET', `php/send_invite.php?email=${email.value}`);
+    xhttp.send();
+    modal.style.display = "none";
+}

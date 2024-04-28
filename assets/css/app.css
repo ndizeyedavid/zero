@@ -442,6 +442,37 @@ input{
 .team-container{
     color: var(--team);
 }
+.team-container .team-card .menu-options{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 80%;
+    /* height: 70%; */
+    background: var(--primary);
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+}
+.team-container .team-card .menu-options .menu-option{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 7px;
+}
+.team-container .team-card .menu-options .menu-option:hover{
+    background-color: var(--secondary);
+}
+.team-container .team-card .menu-options hr{
+    border: 1px solid var(--secondary);
+}
+
+.team-container .team-card .menu-options .menu-option:active{
+    opacity: 0.8;
+}
+
+
 .team-container .option{
     font-weight: 500;  
     border-bottom: 2px solid var(--team);
@@ -490,7 +521,7 @@ input{
     background: rgba(55, 55, 55, 0.7);
 }
 .message-container .teams .team-card:active{
-    transform: scale(0.97);
+    opacity: 0.97;
 }
 
 .message-container .team-profile{
@@ -748,7 +779,7 @@ input{
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 30%; 
+  width: 80%; 
   border-radius: 8px;
 }
 
@@ -1058,4 +1089,85 @@ input{
  100% {
   box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
  }
+}
+.members{
+    width: 100%;
+    height: 50%;
+}
+.members img{
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+}
+.members table{
+    width: 100%;
+    border-color: var(--text);
+}
+.members table th{
+    padding: 10px;
+}
+.invite{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.invite input{
+    border: 1px solid var(--text);
+    color: var(--text);
+    border-radius: 8px;
+    background: none;
+    font-size: 18px;
+}
+.send-invite {
+  font-family: inherit;
+  font-size: 20px;
+  background: royalblue;
+  color: white;
+  padding: 7px;
+  padding-left: 0.9em;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.send-invite span {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
+.send-invite svg {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.send-invite:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+.send-invite:hover svg {
+  transform: translateX(1.2em) rotate(45deg) scale(1.1);
+}
+
+.send-invite:hover span {
+  transform: translateX(5em);
+}
+
+.send-invite:active {
+  transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.1em);
+  }
 }

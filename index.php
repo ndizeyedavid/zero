@@ -184,7 +184,7 @@ if ($_SESSION['id']){
                 <!-- <br><br> -->
             </div>
 
-            <div class="new_team">
+            <div class="new_team" style="display: none;">
                 <form method="POST" action="php/new_team.php" enctype="multipart/form-data">
 
                     <div class="input-container">
@@ -200,6 +200,48 @@ if ($_SESSION['id']){
 
                     <div class="input-container"><input type="submit" class='submit' name="submit" value="Create"></div>
                 </form>
+            </div>
+
+            <div class="members">
+                <table class='members-table' border='1'>
+                    <thead>
+                        <tr>
+                            <th style='width: 3%;'>#</th>
+                            <th style='width: 10%;'>profile</th>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="members-here">
+                       
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="invite">
+                <h5>Enter the email to send the invite</h5>
+                <input type="email" style="width: 100%;padding:8px;" id='email' placeholder="user@mail.com" required>
+                <div>
+                    <button class='send-invite' onclick="sendInvite(document.getElementById('email'))">
+                    <div class="svg-wrapper-1">
+                        <div class="svg-wrapper">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            width="24"
+                            height="24"
+                        >
+                            <path fill="none" d="M0 0h24v24H0z"></path>
+                            <path
+                            fill="currentColor"
+                            d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                            ></path>
+                        </svg>
+                        </div>
+                    </div>
+                    <span>Send</span>
+                    </button>                    
+                </div>
             </div>
         </div>
     </div> 
