@@ -61,7 +61,7 @@
 <form action="" id="form-cont" onsubmit="return false;">
     <div class="task-input-container">
         <div class="inp-container">
-            <div class="add"><i class="bi bi-plus"></i></div>
+            <div class="add" style="cursor: pointer;" onclick="addTask2()"><i class="bi bi-plus"></i></div>
             <div class="input"><input type="text" placeholder="Add a task" id="task" onkeyup="addTask(document.getElementById('task'), document.getElementById('category'), document.getElementById('task_desc'), document.getElementById('form-cont'), event);"></div>
         </div>
         <div class="inp-labels">

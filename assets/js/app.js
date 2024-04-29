@@ -1,5 +1,5 @@
 // reserved variables 🎮🎮
-let task_container, themes, message, lp, date_cont;
+let task_container, themes, message, lp, date_cont, team_id, team, prompt;
 // ***********************
 let due = "";
 let description = "";
@@ -261,11 +261,7 @@ const keyWords = {
     { word: "create", action: "add" },
     { word: "add", action: "add" },
     { word: "plan", action: "add" },
-],
-  due: [
-    { word: "due", action: "date" },
-    { word: "end", action: "date" },
-  ],
+]
 };
 run_btn.onclick = () =>{
     var isThere = false;
@@ -277,13 +273,39 @@ run_btn.onclick = () =>{
             isThere = true;
             message = message.split(keyWords.command[i].word);
             message = message[1];
+            prompt = keyWords.command[i].action;
         }
     }
 
     if (isThere){
-        console.log(message);
-        document.getElementById('task').value=message;
-        modal.style.display="none";
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = () =>{
+            const res = xhttp.response;
+            if (res != "err"){
+                Toastify({
+                    text: res,
+                    className: "info",
+                    gravity: "top",
+                    position: "center",
+                    style: {
+                        background: "linear-gradient(45deg, #23afc9, #9856b7)",
+                    }
+                }).showToast(); 
+            }else{
+                Toastify({
+                    text: "Ai encountered error",
+                    className: "info",
+                    gravity: "top",
+                    position: "center",
+                    style: {
+                        background: "red",
+                    }
+                }).showToast(); 
+            }
+        }
+        xhttp.open("GET", `php/ai.php?q=${message}&prompt=${prompt}`);
+        xhttp.send();
+        modal.style.display = "none";
     }else{
         console.log("nah");
     }
@@ -353,9 +375,46 @@ function sendInvite(email){
     xhttp.onload = () =>{
         email.value = '';
         const res = xhttp.response;
-        console.log(res);
+        if (res == "yes"){
+            Toastify({
+                text: "Invited Sent successfully",
+                className: "info",
+                gravity: "top",
+                position: "center",
+                style: {
+                    color: "black",
+                    background: "lime",
+                }
+            }).showToast();
+        }else{
+            Toastify({
+                text: "Invalid E-mail address",
+                className: "info",
+                gravity: "top",
+                position: "center",
+                style: {
+                    background: "red",
+                }
+            }).showToast();
+        }
     }
-    xhttp.open('GET', `php/send_invite.php?email=${email.value}`);
+    xhttp.open('GET', `php/send_invite.php?email=${email.value}&team_id=${team_id}`);
     xhttp.send();
     modal.style.display = "none";
+}
+
+// message container
+function fetchMessages(team_id, container){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = () =>{
+        const res = xhttp.response;
+        container.innerHTML = res;
+
+        var script = document.createElement('script');
+        script.src = 'assets/js/msg.js';
+        document.body.appendChild(script); 
+        team = team_id;
+    }
+    xhttp.open("GET", `php/msg_container.php?id=${team_id}`);
+    xhttp.send();
 }

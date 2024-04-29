@@ -1,4 +1,6 @@
 <?php
+    $t_d = date("d");
+    $t_m = date("m");
     session_start();
     $user_id = $_SESSION['id'];
 
@@ -15,6 +17,14 @@
             $due = date("m/d/Y");
         }
 
+        $spl_d = explode("/", $due);
+        $d_m = $spl_d[0];
+        $d_d = $spl_d[1];
+        
+        if ($d_d<$t_d && $d_m<=$t_m){
+            $due = date("m/d/Y");
+        }
+        
         if (empty($task)){
             echo "Empty task";
             return false;
