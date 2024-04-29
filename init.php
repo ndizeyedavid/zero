@@ -2,9 +2,9 @@
 session_start();
 include "php/connect.php";
 
-$_SESSION['id'] = 1234;
-$_SESSION['name'] = "Ndizeye David";
-$_SESSION['email'] = "davidndizeye101@gmail.com";
-$_SESSION['profile'] = "dav.jpg";
+$_SESSION['id'] = "0909";
+$_SESSION['name'] = "Tom cruise";
+$_SESSION['email'] = "tom@gmail.com";
+$_SESSION['profile'] = "tom.png";
 
 header("location: index.php");

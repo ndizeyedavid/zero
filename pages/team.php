@@ -10,11 +10,17 @@ include_once '../php/connect.php';
         </div>
 
         <div class="top-options">
+
             <div class="option" onclick="displayModal('new_team')">
                 <i class="bi bi-plus"></i>
                 <span>New team</span>
             </div>
 
+            <div class="option" onclick="displayModal('join_team')">
+                <i class="bi bi-bounding-box"></i>
+                <span>Join team</span>
+            </div>
+            
         </div>
     </div>
 
@@ -38,12 +44,12 @@ include_once '../php/connect.php';
 
                 $creator = $creator_details['user_name'];
             ?>  
-            <div class="team-card">
+            <div class="team-card" id='<?php echo $team_id ?>' onclick="fetchMessages(this.id, document.querySelector('.message-card'))">
                 <div class="menu" onclick="teamMenu(document.querySelector('#t<?php echo $team_id ?>'))"><i class="bi bi-three-dots"></i></div>
                 <div class="menu-options" id='t<?php echo $team_id; ?>' style="display: none;">
                     <div class="menu-option" id='<?php echo $team_id; ?>' onclick="displayModal('members', this.id);document.querySelector('#t<?php echo $team_id ?>').click()"><i class='bi bi-people'></i> Members</div> 
                     <hr>
-                    <div class="menu-option" id='<?php echo $team_id; ?>' onclick="displayModal('invite');document.querySelector('#t<?php echo $team_id ?>').click()"><i class='bi bi-envelope'></i> Invite</div> 
+                    <div class="menu-option" id='<?php echo $team_id; ?>' onclick="displayModal('invite', this.id);document.querySelector('#t<?php echo $team_id ?>').click()"><i class='bi bi-envelope'></i> Invite</div> 
                     <hr>
                     <div class="menu-option" id='<?php echo $team_id; ?>' onclick="confirmDelete()"><i class='bi bi-x-octagon'></i> Delete</div> 
                 </div>

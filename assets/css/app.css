@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 :root {
     --primary: #212121;
     --secondary: #373737;
@@ -438,6 +438,10 @@ input{
 .all-container{
     color: var(--house);
 }
+.notification-container{
+    color: var(--bell);
+}
+
 /* WHEN will i ever stop */
 .team-container{
     color: var(--team);
@@ -1077,6 +1081,65 @@ input{
  animation: pulse512 1.5s infinite;
 }
 
+/* join team */
+
+.join_team form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.join_team .input-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.join_team input, .join_team button{
+    font-size: 12px;
+    padding: 7px;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s;
+}
+.join_team button{
+    background: var(--team);
+    border: none;
+}
+.join_team button:hover{
+    opacity: 0.8;
+}
+.join_team button:active{
+    opacity: 1;
+    transform: scale(0.97);
+}
+
+.join_team .team-name{
+    background: none;
+    border: 1px solid var(--text);
+    color: var(--text);
+    cursor: text;
+}
+.join_team .submit {
+ border: none;
+ color: #fff;
+ background-image: linear-gradient(30deg, #0400ff, #4ce3f7);
+ border-radius: 10px;
+ background-size: 100% auto;
+ font-family: inherit;
+ font-size: 17px;
+ padding: 0.6em 1.5em;
+ font-weight: 300;
+}
+
+.join_team .submit:hover {
+ background-position: right center;
+ background-size: 200% auto;
+ -webkit-animation: pulse 2s infinite;
+ animation: pulse512 1.5s infinite;
+}
+
 @keyframes pulse512 {
  0% {
   box-shadow: 0 0 0 0 #05bada66;
@@ -1170,4 +1233,100 @@ input{
   to {
     transform: translateY(-0.1em);
   }
+}
+
+/* notification section */
+.notif-container{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 76vh;
+    overflow-x: auto;
+}
+.notif-container .single-notif{
+    margin-top: 15px;
+}
+.notification {
+  width: 100%;
+  /* max-width: 290px; */
+  height: 70px;
+  background: #353535;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 50px 0px;
+}
+
+.notification:hover {
+  cursor: pointer;
+  /* transform: scale(1.05); */
+  opacity: 0.9;
+}
+
+.img {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+  border-radius: 10px;
+  /* border: 1px solid #d7cfcf; */
+}
+.img i{
+    font-size: 30px;
+}
+.textBox {
+  width: calc(100% - 90px);
+  margin-left: 10px;
+  color: white;
+  font-family: 'Poppins' sans-serif;
+}
+
+.textContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.span {
+  font-size: 13px;
+}
+
+.h1 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.p {
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.notif-container button{
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 9px;
+    border-radius: 20px;
+    border: none;
+    font-size: 15px;
+    transition: .2s ease-in-out;
+}
+
+.notif-container button:hover{
+    transform: scale(1.05);
+}
+.notif-container button:active{
+    transform: scale(1);
+}
+.single-notif a{
+    color: inherit;
+    text-decoration: none;
+    font-size: 20px;
+    position: relative;
+    top: 20px;
+    right: 10px;
 }

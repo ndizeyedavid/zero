@@ -7,6 +7,7 @@ let voice_modal = document.querySelector(".ai_voice");
 let team_modal = document.querySelector(".new_team");
 let members = document.querySelector(".members");
 let invite = document.querySelector(".invite");
+let join_team = document.querySelector(".join_team");
 
 function displayModal(option, id) {
   document.querySelector('.modal-content').style.width="30%";
@@ -39,10 +40,18 @@ function displayModal(option, id) {
 
   if (option == "invite") {
     invite.style.display="";
+    team_id = id;
   }else{
     invite.style.display="none";
   }
 
+  if (option == "join_team") {
+    join_team.style.display="";
+  }else{
+    join_team.style.display="none";
+  }
+  
+  
 }
 
 span.onclick = function() {

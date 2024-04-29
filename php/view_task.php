@@ -11,7 +11,7 @@
         if ($type == "main"){
             $sql = "SELECT * FROM tasks WHERE user_id='{$user_id}' AND due='{$due}' ORDER BY important DESC";
         }else if($type == "planned"){
-            $sql = "SELECT * FROM tasks WHERE user_id='{$user_id}' AND due!='{$due}' ORDER BY due ASC";
+            $sql = "SELECT * FROM tasks WHERE user_id='{$user_id}' AND due!='{$due}' AND completed='0' ORDER BY due ASC";
         }else if($type == "important"){
             $sql = "SELECT * FROM tasks WHERE user_id='{$user_id}' AND important='1' ORDER BY due ASC";
         }else if($type == "completed"){

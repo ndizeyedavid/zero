@@ -118,7 +118,7 @@ if ($_SESSION['id']){
                     </div>
                 </a>
                  
-                <a href="#notification" class="link" id="notification">
+                <a href="php/refresh.php#notification" class="link" id="notification">
                     <div class="bottom-option">
                         <hr>
                         <div class="option">
@@ -202,7 +202,7 @@ if ($_SESSION['id']){
                 </form>
             </div>
 
-            <div class="members">
+            <div class="members" style="display: none;">
                 <table class='members-table' border='1'>
                     <thead>
                         <tr>
@@ -218,7 +218,7 @@ if ($_SESSION['id']){
                 </table>
             </div>
 
-            <div class="invite">
+            <div class="invite" style="display: none;">
                 <h5>Enter the email to send the invite</h5>
                 <input type="email" style="width: 100%;padding:8px;" id='email' placeholder="user@mail.com" required>
                 <div>
@@ -243,35 +243,48 @@ if ($_SESSION['id']){
                     </button>                    
                 </div>
             </div>
-        </div>
+
+            <div class="join_team" style="display: none;">
+                <form method="POST" action="php/join_team.php" enctype="multipart/form-data">
+                    <div class="input-container">
+                        <label for="team-name">Enter the invite code</label>
+                        <input type="text" class="team-name" name="invite_code" required>
+                    </div>
+
+                    <div class="input-container"><input type="submit" class='submit' name="submit" value="Join"></div>
+                </form>
+            </div>
     </div> 
-    <script>
-        const date = "<?php echo date("D, M d") ?>";
-    </script>   
-    <!-- always fighting with  🤬 javascript files -->
-    <script src="assets/vendor/toastify/toast.js"></script>
-    <script type="text/javascript" src="assets/js/view_task.js"></script>
-    <script type="text/javascript" src="assets/vendor/date/dist/datedreamer.js"></script>
-    <script type="text/javascript" src="assets/js/modal.js"></script>
-    <script type="text/javascript" src="assets/js/router.js"></script>
-    <script type="text/javascript" src="assets/js/app.js"></script>
-    <!-- <script ></script> -->
-    <script>
-        const todaysDate = new Date();
-        new datedreamer.calendar({
-            element: "#calendar",
-            selectedDate: todaysDate,
-            format: "MM/DD/YYYY",
-            hideInputs: true,
-            onChange: (e) => {
-                // Get Date object from event
-                due = e.detail;
-                console.log(due);
-            },
-            theme: "lite-purple"
-        });         
-    </script>
-    <script src="assets/js/voice.js"></script>
+
+    <!-- scripts -->
+        <script>
+            const date = "<?php echo date("D, M d") ?>";
+        </script>   
+        <!-- always fighting with  🤬 javascript files -->
+        <script src="assets/vendor/toastify/toast.js"></script>
+        <!-- <script src="assets/vendor/emoji/lc_emoji_picker.js"></script> -->
+        <script type="text/javascript" src="assets/js/view_task.js"></script>
+        <script type="text/javascript" src="assets/vendor/date/dist/datedreamer.js"></script>
+        <script type="text/javascript" src="assets/js/modal.js"></script>
+        <script type="text/javascript" src="assets/js/router.js"></script>
+        <script type="text/javascript" src="assets/js/app.js"></script>
+        <!-- <script ></script> -->
+        <script>
+            const todaysDate = new Date();
+            new datedreamer.calendar({
+                element: "#calendar",
+                selectedDate: todaysDate,
+                format: "MM/DD/YYYY",
+                hideInputs: true,
+                onChange: (e) => {
+                    // Get Date object from event
+                    due = e.detail;
+                    console.log(due);
+                },
+                theme: "lite-purple"
+            });         
+        </script>
+        <script src="assets/js/voice.js"></script>
 </body>
 </html>
-<?php }else{header("location: init.php");} ?>
+<?php }else{header("location: login.html");} ?>
